@@ -10,3 +10,6 @@
 
 # Node dependencies, if used later
 /node_modules/
+
+# Original images
+/static/images/originals/
