@@ -7,6 +7,13 @@
       {{ if .Site.Params.showDate }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
       {{ if .Site.Params.showReadingTime }}&nbsp;&middot;&nbsp;{{ .ReadingTime }} min read{{ end }}
     </div>
+
+{{ with .Params.coverImg }}
+<div class="post-cover">
+  <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="eager">
+</div>
+{{ end }}
+
     <div class="post-content">
       {{ .Content | safeHTML }}
     </div>
