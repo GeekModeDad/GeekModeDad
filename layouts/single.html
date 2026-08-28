@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="post-body">
+  <article class="post-full">
+    {{ with .Params.tags }}<span class="post-category single-cat">{{ index . 0 }}</span>{{ end }}
+    <h1 class="post-title">{{ .Title | upper }}</h1>
+    <div class="post-meta">
+      {{ if .Site.Params.showDate }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
+      {{ if .Site.Params.showReadingTime }}&nbsp;&middot;&nbsp;{{ .ReadingTime }} min read{{ end }}
+    </div>
+    <div class="post-content">
+      {{ .Content | safeHTML }}
+    </div>
+    {{ with .Params.tags }}
+    <div class="post-tags">
+      {{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+    <div class="post-back">
+      <a class="read-more" href="{{ "/" | relURL }}">&larr; BACK TO HOME</a>
+    </div>
+    {{ partial "comments.html" . }}
+  </article>
+  {{ partial "sidebar.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="post-body">
+  <main class="post-feed">
+    <span class="section-title">// LINKS</span>
+    <div class="links-list">
+      {{ range .Params.links }}
+      <div class="link-card">
+        {{ if .image }}
+        <div class="link-thumb">
+          <img src="{{ .image | relURL }}" alt="{{ .title }}">
+        </div>
+        {{ end }}
+        <div class="link-info">
+          <h2 class="link-title">{{ .title }}</h2>
+          {{ with .category }}<span class="link-cat">{{ . }}</span>{{ end }}
+          {{ with .description }}<p class="link-desc">{{ . }}</p>{{ end }}
+          <a href="{{ .url }}" class="read-more link-btn" target="_blank" rel="noopener noreferrer">VISIT →</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </main>
+  {{ partial "sidebar.html" . }}
+</div>
+{{ end }}

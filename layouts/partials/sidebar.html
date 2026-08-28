@@ -1,0 +1,30 @@
+<aside class="sidebar">
+  <div class="sidebar-card green profile-card">
+    <div class="profile-avatar">
+      <img src="{{ "/images/avatar.jpg" | relURL }}" alt="GeekModeDad">
+    </div>
+    <h3>GEEKMODEDAD</h3>
+    <p>Dad. Collector. Homelab tinkerer. Builder of questionable tech projects.</p>
+    <div class="social-icons">
+      {{ range .Site.Params.Social }}
+      <a href="{{ .url }}" class="social-icon-btn" title="{{ .name }}" target="_blank" rel="noopener">{{ .name | upper }}</a>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="sidebar-card orange">
+    <h3>CURRENT GEAR</h3>
+    <ul class="gear-list">
+      <li><span class="emoji">💻</span> Synology NAS</li>
+      <li><span class="emoji">🖥️</span> Mini Homelab Rack</li>
+      <li><span class="emoji">🎮</span> Retro Handhelds</li>
+      <li><span class="emoji">🧱</span> LEGO &amp; Collectibles</li>
+      <li><span class="emoji">🖨️</span> 3D Printer Projects</li>
+    </ul>
+  </div>
+
+  <div class="sidebar-card cyan">
+    <h3>LEVEL UP</h3>
+    <p>Follow the journey from beginner tinkerer to full nerd cave.</p>
+  </div>
+</aside>

@@ -1,0 +1,9 @@
+{{ $caption := or .Text .Title }}
+{{ if $caption }}
+<figure class="post-figure">
+  <img src="{{ .Destination }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
+  <figcaption>{{ $caption }}</figcaption>
+</figure>
+{{ else }}
+<img src="{{ .Destination }}" alt="{{ .Text }}">
+{{ end }}

@@ -1,0 +1,12 @@
+# Hugo generated files
+/public/
+/.hugo_build.lock
+
+# macOS
+.DS_Store
+
+# Hugo resources/cache
+/resources/
+
+# Node dependencies, if used later
+/node_modules/

@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="site-body">
+  <main class="post-feed">
+    {{ $all := where .Site.RegularPages "Section" "posts" }}
+    {{ $featured := where $all "Params.featured" true }}
+    {{ $rest := where $all "Params.featured" "!=" true }}
+    {{ $pages := $featured | append $rest | first 4 }}
+    {{ range $pages }}
+    {{ $imgSrc := "" }}
+    {{ with findRE `src="[^"]+"` .Content 1 }}
+      {{ $imgSrc = index . 0 | replaceRE `src="([^"]+)"` "$1" }}
+    {{ end }}
+    <article class="post-card{{ if .Params.featured }} featured-card{{ end }}">
+      {{ if .Params.featured }}<span class="featured-badge">&#9733; FEATURED</span>{{ end }}
+      {{ with .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ index . 0 | urlize }}/" class="post-category">{{ index . 0 }}</a>{{ end }}
+      <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | upper }}</a></h2>
+      {{ if .Params.coverImg }}
+      <div class="post-image" style="background:none;padding:0;">
+        <img src="{{ .Params.coverImg }}" alt="{{ .Title }}" style="width:100%;height:220px;object-fit:cover;border-radius:3px;border:3px solid #000;">
+      </div>
+      {{ else if $imgSrc }}
+      <div class="post-image" style="background:none;padding:0;">
+        <img src="{{ $imgSrc }}" alt="{{ .Title }}" style="width:100%;height:220px;object-fit:cover;border-radius:3px;border:3px solid #000;">
+      </div>
+      {{ else }}
+      <div class="post-image"><span>{{ .Section | upper }}</span></div>
+      {{ end }}
+      {{ with (.Description | default .Summary) }}<p class="post-excerpt">{{ . | replaceRE `<img[^>]+>` "" | safeHTML }}</p>{{ end }}
+      <div class="read-more-wrap"><a class="read-more" href="{{ .Permalink }}">READ MORE &rarr;</a></div>
+    </article>
+    {{ end }}
+    {{ if not $all }}
+    <div class="no-posts">
+      <p>No posts yet — check back soon!</p>
+    </div>
+    {{ end }}
+  </main>
+  {{ partial "sidebar.html" . }}
+</div>
+{{ end }}

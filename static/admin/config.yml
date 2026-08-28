@@ -1,0 +1,45 @@
+backend:
+  name: proxy
+  proxy_url: https://www.geekmodedad.com/api/v1
+
+media_folder: static/images/posts
+public_folder: /images/posts
+
+collections:
+  - name: posts
+    label: Posts
+    folder: content/posts
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Featured Post", name: "featured", widget: "boolean", default: false, required: false, hint: "Pin this post to the top of the home page." }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - "Homelab"
+          - "Tech"
+          - "Reviews"
+          - "Toys"
+          - "3D-Printing"
+          - "General"
+          - "Hobbies"
+          - "TV"
+          - "Cartoons"
+      - { label: "Cover Image", name: "coverImg", widget: "string", required: false, hint: "Path to cover image, e.g. /images/posts/bambu001.jpg — upload files to /volume1/docker/hugo/site/static/images/posts/ via SFTP first. If blank, the first inline image in the post body is used as the cover." }
+      - { label: "Excerpt", name: "description", widget: "text", required: false, hint: "Short blurb shown under the thumbnail on the home page." }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string", required: false, hint: "Overrides the post title in search engine results. Keep under 60 characters." }
+          - { label: "Meta Description", name: "description", widget: "text", required: false, hint: "Shown in search results under the page title. Keep under 160 characters." }
+      - { label: "Body", name: "body", widget: "markdown" }

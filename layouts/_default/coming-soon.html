@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="site-body">
+  <main class="post-feed">
+    <div class="coming-soon-card">
+      <p class="coming-soon-icon">🚧</p>
+      <h1 class="coming-soon-title">{{ .Title | upper }}</h1>
+      <p class="coming-soon-msg">This page is on its way — check back soon!</p>
+      <a class="read-more" href="{{ "/" | relURL }}">&larr; BACK TO HOME</a>
+    </div>
+  </main>
+  {{ partial "sidebar.html" . }}
+</div>
+{{ end }}

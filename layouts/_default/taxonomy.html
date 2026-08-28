@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="site-body">
+  <main>
+    <h2 class="section-title">ALL TAGS</h2>
+    <div class="tags-cloud">
+      {{ range .Data.Terms.Alphabetical }}
+      <a href="{{ .Page.RelPermalink }}" class="tag-pill">
+        {{ .Page.Title }}<span class="tag-count">{{ .Count }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </main>
+  {{ partial "sidebar.html" . }}
+</div>
+{{ end }}

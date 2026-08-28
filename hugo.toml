@@ -1,0 +1,116 @@
+baseURL = "https://geekmodedad.com/"
+languageCode = "en-us"
+title = "Geek Mode Dad"
+enableEmoji = true
+enableRobotsTXT = true
+summaryLength = 30
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+  pagerSize = 5
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[params]
+  defaultTheme = "dark"
+  showThemeSwitcher = false
+  description = "A personal blog about homelabbing, self-hosting, and all things geek."
+  showReadingTime = true
+  showDate = true
+  showTags = true
+  motd = [
+    "It's not hoarding if it's in a Docker container.",
+    "Buy the gadget. Build the thing. Learn the lesson.",
+    "Uptime is a love language.",
+    "Dad by day. Sysadmin by night. Tired always.",
+    "If it's worth doing, it's worth over-engineering.",
+    "The stack grows. The wife sighs. The homelab thrives.",
+    "One more container won't hurt.",
+    "Self-hosted and proud.",
+    "Why buy it when you can build it and spend twice as long?",
+    "The server is fine. The server is always fine.",
+    "There's no such thing as too many containers.",
+    "My home network has better uptime than most startups.",
+    "\"Tech. Tech always changes.\"",
+    "\"The estimated delivery date is a lie.\"",
+    "\"It's dangerous to deploy alone! Take this SSH key.\"",
+    "\"Self-hosting isn't about why. It's about why not.\"",
+    "\"All your data are belong to Big Tech. Self-host everything.\"",
+    "\"Despite everything, it's still running.\"",
+  ]
+
+[[params.Social]]
+  name = "Mastodon"
+  url = "#"
+  icon = "mastodon"
+
+[[params.Social]]
+  name = "Discord"
+  url = "#"
+  icon = "discord"
+
+[[params.Social]]
+  name = "Pixelfed"
+  url = "#"
+  icon = "pixelfed"
+
+[params.Author]
+  name = "GeekModeAdmin"
+
+[params.homepage.profile]
+  headline = "Hi, I'm Geek Mode Dad 👋"
+  image = "images/avatar.png"
+  where = "right"
+
+[params.homepage]
+  showRecent = true
+  showRecentLabel = "Latest Posts"
+  showRecentItems = 5
+  showReadMore = true
+
+[[menu.main]]
+  name = "HOME"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "ABOUT"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "HOMELAB"
+  url = "/tags/homelab/"
+  weight = 3
+
+[[menu.main]]
+  name = "TECH"
+  url = "/tags/tech/"
+  weight = 4
+
+[[menu.main]]
+  name = "REVIEWS"
+  url = "/tags/reviews/"
+  weight = 5
+
+[[menu.main]]
+  name = "TOYS"
+  url = "/tags/toys/"
+  weight = 6
+
+[[menu.main]]
+  name = "LINKS"
+  url = "/links/"
+  weight = 7
+
+[[menu.main]]
+  name = "CONTACT"
+  url = "/contact/"
+  weight = 8

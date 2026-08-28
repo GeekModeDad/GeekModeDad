@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="container">
+    <a href="{{ "/" | relURL }}" class="logo-box"><span>GEEKMODEDAD</span></a>
+    <div class="tagline-box">
+      <p class="tagline-main">Comics. Gadgets. Homelab. Collectibles. Dad life.</p>
+      <p class="tagline-sub" id="site-motd">{{ .Site.Params.description }}</p>
+    </div>
+  </div>
+</header>
+<script>
+(function() {
+  var motd = {{ .Site.Params.motd | jsonify | safeJS }};
+  var el = document.getElementById('site-motd');
+  if (el && motd && motd.length) {
+    el.textContent = motd[Math.floor(Math.random() * motd.length)];
+  }
+})();
+</script>

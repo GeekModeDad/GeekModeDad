@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}">
+{{ partial "head.html" . }}
+<body>
+<canvas id="halftone-bg"></canvas>
+{{ partial "header.html" . }}
+{{ partial "nav.html" . }}
+{{ block "main" . }}{{ end }}
+{{ partial "footer.html" . }}
+<script>
+function drawHalftone() {
+  var c = document.getElementById('halftone-bg');
+  if (!c) return;
+  var ctx = c.getContext('2d');
+  var W = window.innerWidth, H = window.innerHeight;
+  c.width = W; c.height = H;
+  ctx.fillStyle = '#d6d4cc';
+  ctx.fillRect(0, 0, W, H);
+  var gs = 26, cols = Math.ceil(W/gs)+1, rows = Math.ceil(H/gs)+1;
+  for (var row = 0; row < rows; row++) {
+    for (var col = 0; col < cols; col++) {
+      var off = row%2===0 ? 0 : gs/2;
+      var x = col*gs+off, y = row*gs;
+      var prog = row/rows;
+      var r = gs*0.04 + (gs*0.46-gs*0.04)*(prog*prog);
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI*2);
+      ctx.fillStyle = '#b8b6b0';
+      ctx.fill();
+    }
+  }
+}
+drawHalftone();
+window.addEventListener('resize', drawHalftone);
+</script>
+</body>
+</html>
