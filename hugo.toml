@@ -1,5 +1,5 @@
 baseURL = "https://geekmodedad.com/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Geek Mode Dad"
 enableEmoji = true
 enableRobotsTXT = true
