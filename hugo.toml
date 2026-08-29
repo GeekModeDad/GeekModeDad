@@ -86,8 +86,8 @@ buildFuture = false
   weight = 2
 
 [[menu.main]]
-  name = "HOMELAB"
-  url = "/tags/homelab/"
+  name = "GAMING"
+  url = "/tags/gaming/"
   weight = 3
 
 [[menu.main]]
