@@ -96,21 +96,26 @@ buildFuture = false
   weight = 4
 
 [[menu.main]]
-  name = "REVIEWS"
-  url = "/tags/reviews/"
+  name = "TOYS"
+  url = "/tags/toys/"
   weight = 5
 
 [[menu.main]]
-  name = "TOYS"
-  url = "/tags/toys/"
+  name = "COMICS"
+  url = "/tags/comics/"
   weight = 6
+
+[[menu.main]]
+  name = "REVIEWS"
+  url = "/tags/reviews/"
+  weight = 7
 
 [[menu.main]]
   name = "LINKS"
   url = "/links/"
-  weight = 7
+  weight = 8
 
 [[menu.main]]
   name = "CONTACT"
   url = "/contact/"
-  weight = 8
+  weight = 9
